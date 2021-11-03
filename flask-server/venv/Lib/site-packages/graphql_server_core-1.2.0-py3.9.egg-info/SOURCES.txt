@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+graphql_server/__init__.py
+graphql_server/error.py
+graphql_server_core.egg-info/PKG-INFO
+graphql_server_core.egg-info/SOURCES.txt
+graphql_server_core.egg-info/dependency_links.txt
+graphql_server_core.egg-info/not-zip-safe
+graphql_server_core.egg-info/requires.txt
+graphql_server_core.egg-info/top_level.txt

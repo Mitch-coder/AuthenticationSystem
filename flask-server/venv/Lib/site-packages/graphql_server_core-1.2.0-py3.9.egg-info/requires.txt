@@ -1,0 +1,6 @@
+graphql-core<3,>=2.3
+promise<3,>=2.3
+
+[test]
+pytest==4.6.9
+pytest-cov==2.8.1

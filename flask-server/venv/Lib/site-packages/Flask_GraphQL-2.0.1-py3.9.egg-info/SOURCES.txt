@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+README.rst
+setup.cfg
+setup.py
+Flask_GraphQL.egg-info/PKG-INFO
+Flask_GraphQL.egg-info/SOURCES.txt
+Flask_GraphQL.egg-info/dependency_links.txt
+Flask_GraphQL.egg-info/not-zip-safe
+Flask_GraphQL.egg-info/requires.txt
+Flask_GraphQL.egg-info/top_level.txt
+flask_graphql/__init__.py
+flask_graphql/blueprint.py
+flask_graphql/graphqlview.py
+flask_graphql/render_graphiql.py
