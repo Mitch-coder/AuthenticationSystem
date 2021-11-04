@@ -45,15 +45,18 @@ def home():
 
 @app.route('/login',methods=['POST'])
 def login():
-    if request.form.get['username'] and request.form.get['password'] =='1234':
+    username = request.form.get("username")
+    password = request.form.get("password")
+    
+    if username=='user' and password=='1234':
         session['logged_in'] = True
         token = jwt.encode({
-            'user':request.form['username'],
+            'user':request.form.get('username'),
             'expiration':str(datetime.utcnow() + timedelta(seconds=120))
         },
         app.config['SECRET_KEY'])
 
-        user_root = User(username=request.form.get['username'])
+        user_root = User(username=request.form.get('username'))
         result = schema.execute(
             '''
             query getUser {
