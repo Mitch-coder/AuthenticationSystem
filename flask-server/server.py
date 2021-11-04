@@ -45,7 +45,7 @@ def home():
 
 @app.route('/login',methods=['POST'])
 def login():
-    if request.form['username'] and request.form['password'] =='1234':
+    if request.form.get['username'] and request.form.get['password'] =='1234':
         session['logged_in'] = True
         token = jwt.encode({
             'user':request.form['username'],
@@ -53,7 +53,7 @@ def login():
         },
         app.config['SECRET_KEY'])
 
-        user_root = User(username=request.form['username'])
+        user_root = User(username=request.form.get['username'])
         result = schema.execute(
             '''
             query getUser {
@@ -65,9 +65,9 @@ def login():
             root=user_root
         )
         print(result)
-        return jsonify({'token':token.decode('utf-8')})
+        return jsonify({"success":True,'token':token.decode('utf-8')})
     else:
-        return make_response('No se puede verificar lo sentimos',403)
+        return jsonify({"success":False})
 
 app.add_url_rule('/graphql', view_func=GraphQLView.as_view(
     'graphql',
