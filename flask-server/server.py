@@ -47,7 +47,7 @@ def home():
 def login():
     username = request.form.get("username")
     password = request.form.get("password")
-    
+
     if username=='user' and password=='1234':
         session['logged_in'] = True
         token = jwt.encode({
@@ -67,7 +67,6 @@ def login():
             ''',
             root=user_root
         )
-        print(result)
         return jsonify({"success":True,'token':token.decode('utf-8')})
     else:
         return jsonify({"success":False})
