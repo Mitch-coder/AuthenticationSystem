@@ -11,10 +11,6 @@ app.debug = True
 app.config['SECRET_KEY'] = '1@{xbaGxd0xd0vi3xf1|xaf5eJx9bxe6Pxff('
 CORS(app)
 
-@app.route('/members')
-def members():
-    return {"members":["member1","member2"]}
-
 def tokenRequired(func):
     @wraps(func)
     def decorated(*args,**kwargs):
@@ -26,22 +22,14 @@ def tokenRequired(func):
         except:
             return jsonify({'Alert':'token invalido'})
     return decorated
-@app.route('/public')
-def public():
-    return 'for public'
 
-@app.route('/auth')
+@app.route('/profile')
 @tokenRequired
-def auth():
-    return 'Bienvenido'
-
-@app.route('/')
-def home():
+def profile():
     if not session.get('logged_in'):
-        return redirect("/members")
+        return jsonify({"success":False})
     else:
-        return redirect("/members")
-        #return 'Ya esta logueado'
+        return jsonify({"success":True})
 
 @app.route('/login',methods=['POST'])
 def login():
@@ -67,6 +55,7 @@ def login():
             ''',
             root=user_root
         )
+        print(result)
         return jsonify({"success":True,'token':token.decode('utf-8')})
     else:
         return jsonify({"success":False})
