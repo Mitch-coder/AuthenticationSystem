@@ -1,3 +1,19 @@
+# Authentication System
+A pratical exampl for incorporate a differente types of technologie in a project for authentication
+
+# Technologies used
+1. Python - Flask
+2. JWT
+3. GraphQL
+4. React 
+5. Tailwind
+
+#Project Fineshed
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
